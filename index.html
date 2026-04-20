@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hi, i'm sitara ✦</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Sitara Palette (dusty rose · terracotta · warm cream · sage · blush) ── */
+      --cream:         #fdf6ee;
+      --warm-white:    #fffaf5;
+      --blush:         #f2d5c8;
+      --blush-light:   #faeae2;
+      --rose:          #d98b7e;
+      --rose-deep:     #b85c52;
+      --terra:         #c97b5a;
+      --terra-light:   #e8c5ae;
+      --sage:          #c8d5bc;
+      --sage-dark:     #7e9c72;
+      --mauve:         #c9a6a0;
+      --mauve-light:   #ecddd9;
+      --text:          #3b2c28;
+      --text-soft:     #7a5a52;
+      --text-muted:    #b08880;
+
+      --shadow-sm: 0 2px 14px rgba(180,90,70,.10);
+      --shadow-md: 0 6px 28px rgba(180,90,70,.16);
+      --shadow-lg: 0 16px 52px rgba(180,90,70,.14);
+
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 34px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─────────── NAV ─────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(253,246,238,.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--blush);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--rose-deep);
+      font-size: 1.35rem;
+      text-decoration: none;
+      letter-spacing: .04em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-soft);
+      font-weight: 600;
+      font-size: .85rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--rose-deep); }
+
+    /* ─────────── HERO ─────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 100px 1.5rem 4rem;
+      background: linear-gradient(155deg, var(--warm-white) 0%, var(--blush-light) 50%, var(--cream) 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    /* blobs */
+    .hero::before, .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: .45;
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 520px; height: 520px;
+      background: var(--terra-light);
+      top: -150px; right: -160px;
+      animation: drift 9s ease-in-out infinite;
+    }
+    .hero::after {
+      width: 380px; height: 380px;
+      background: var(--sage);
+      bottom: -100px; left: -100px;
+      animation: drift 11s ease-in-out infinite reverse;
+    }
+    /* extra blob */
+    .hero-blob3 {
+      position: absolute;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: .3;
+      background: var(--mauve);
+      top: 60%; left: 65%;
+      pointer-events: none;
+      animation: drift 13s ease-in-out infinite 2s;
+    }
+    @keyframes drift {
+      0%,100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-28px) scale(1.05); }
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 620px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; gap: 1.4rem;
+      animation: fadeUp .9s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* avatar */
+    .avatar-wrap {
+      width: 136px; height: 136px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--rose-deep), var(--terra), var(--mauve));
+      box-shadow: var(--shadow-md);
+      animation: fadeUp .9s .08s ease both;
+    }
+    .avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--blush-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.4rem;
+      border: 3px solid var(--warm-white);
+    }
+
+    /* small decorative tag above greeting */
+    .hero-tag {
+      display: inline-block;
+      background: var(--warm-white);
+      border: 1.5px solid var(--blush);
+      color: var(--text-soft);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      border-radius: 999px;
+      animation: fadeUp .9s .12s ease both;
+    }
+
+    .hero-greeting {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(2.6rem, 8vw, 4.2rem);
+      color: var(--rose-deep);
+      line-height: 1.15;
+      animation: fadeUp .9s .18s ease both;
+    }
+    .hero-greeting span {
+      font-style: normal;
+      font-family: 'Pacifico', cursive;
+      font-size: .6em;
+      display: block;
+      color: var(--terra);
+      letter-spacing: .02em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(.95rem, 2.8vw, 1.1rem);
+      color: var(--text-soft);
+      max-width: 400px;
+      font-weight: 500;
+      animation: fadeUp .9s .26s ease both;
+      line-height: 1.75;
+    }
+    .hero-tagline em {
+      color: var(--rose-deep);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* pill tags */
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center;
+      animation: fadeUp .9s .33s ease both;
+    }
+    .pill {
+      background: var(--warm-white);
+      border: 1.5px solid var(--blush);
+      color: var(--text-soft);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .3rem .9rem;
+      border-radius: 999px;
+      display: inline-flex; align-items: center; gap: .35rem;
+    }
+    .pill.terra { background: var(--blush-light); border-color: var(--terra-light); color: var(--terra); }
+    .pill.sage  { background: #edf2e9; border-color: var(--sage); color: var(--sage-dark); }
+
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: linear-gradient(135deg, var(--rose-deep), var(--terra));
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: .97rem;
+      padding: .88rem 2.3rem;
+      border-radius: 999px;
+      box-shadow: 0 6px 24px rgba(184,92,82,.35);
+      letter-spacing: .04em;
+      transition: transform .22s, box-shadow .22s;
+      animation: fadeUp .9s .4s ease both;
+      border: none; cursor: pointer;
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 32px rgba(184,92,82,.48);
+    }
+
+    .hero-scroll-hint {
+      font-size: .76rem;
+      color: var(--mauve);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      animation: fadeUp .9s .52s ease both, bob 2.4s 1.4s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(7px); }
+    }
+
+    /* ─────────── SHARED SECTION ─────────── */
+    section { padding: 5.5rem 1.5rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: #edf2e9;
+      padding: .3rem 1rem;
+      border-radius: 999px;
+      margin-bottom: .9rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      color: var(--text);
+      margin-bottom: .5rem;
+      line-height: 1.2;
+    }
+    .section-sub {
+      color: var(--text-soft);
+      max-width: 480px;
+      font-size: .97rem;
+      font-weight: 500;
+    }
+
+    /* ─────────── ABOUT ─────────── */
+    #about { background: var(--warm-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    .about-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--blush);
+    }
+    .about-card p {
+      color: var(--text-soft);
+      font-size: .96rem;
+      line-height: 1.9;
+    }
+    .about-card p + p { margin-top: .85rem; }
+    .about-card strong { color: var(--rose-deep); font-weight: 700; }
+
+    .about-bubbles { display: flex; flex-direction: column; gap: 1rem; }
+    .about-bubble {
+      background: var(--blush-light);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.4rem;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--rose-deep);
+      box-shadow: var(--shadow-sm);
+      display: flex; align-items: center; gap: .7rem;
+      border: 1.5px solid var(--blush);
+    }
+    .about-bubble.sage-b  { background: #edf2e9; border-color: var(--sage); color: var(--sage-dark); }
+    .about-bubble.mauve-b { background: var(--mauve-light); border-color: #d8c0bc; color: #8a5c58; }
+    .bicon { font-size: 1.25rem; flex-shrink: 0; }
+
+    /* ─────────── LOVES ─────────── */
+    #loves { background: var(--cream); }
+    .loves-header { text-align: center; }
+    .loves-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1.3rem;
+      margin-top: 2.5rem;
+    }
+    .love-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.3rem 1.6rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--blush);
+      transition: transform .25s, box-shadow .25s;
+      cursor: default;
+    }
+    .love-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .love-card:nth-child(3n+2) { border-color: var(--sage); }
+    .love-card:nth-child(3n)   { border-color: var(--mauve-light); }
+
+    .love-icon { font-size: 2.3rem; margin-bottom: .85rem; display: block; line-height: 1; }
+    .love-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: .3rem;
+    }
+    .love-desc { font-size: .8rem; color: var(--text-muted); font-weight: 500; }
+
+    /* ─────────── CONTACT ─────────── */
+    #contact {
+      background: linear-gradient(150deg, var(--blush-light) 0%, var(--mauve-light) 100%);
+      text-align: center;
+    }
+    .contact-inner { max-width: 540px; margin: 0 auto; }
+    .contact-inner .section-label { background: rgba(255,255,255,.6); color: var(--rose-deep); }
+
+    .contact-form {
+      margin-top: 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(255,255,255,.8);
+      border: 1.5px solid var(--blush);
+      border-radius: var(--radius-sm);
+      padding: .88rem 1.1rem;
+      font-family: 'Quicksand', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--rose-deep);
+      box-shadow: 0 0 0 3px rgba(184,92,82,.13);
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: var(--mauve); }
+    .contact-form .cta-btn { align-self: center; }
+
+    /* ─────────── FOOTER ─────────── */
+    footer {
+      background: var(--warm-white);
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      border-top: 1.5px solid var(--blush);
+    }
+    .social-row {
+      display: flex; justify-content: center; gap: .9rem; margin-bottom: 1rem;
+    }
+    .social-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--blush-light);
+      border: 1.5px solid var(--blush);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: 1.15rem;
+      color: var(--rose-deep);
+      transition: background .22s, transform .22s, box-shadow .22s;
+      box-shadow: var(--shadow-sm);
+    }
+    .social-btn:hover {
+      background: var(--rose-deep);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .footer-note { font-size: .82rem; color: var(--text-muted); font-weight: 500; }
+    .footer-note span { color: var(--rose-deep); }
+
+    /* ─────────── WAVES ─────────── */
+    .wave { display: block; width: 100%; overflow: hidden; line-height: 0; }
+    .wave svg { display: block; width: 100%; }
+
+    /* ─────────── REVEAL ─────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─────────── RESPONSIVE ─────────── */
+    @media (max-width: 680px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links  { display: none; }
+    }
+    @media (max-width: 420px) {
+      .loves-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">✦ sitara</a>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#loves">loves</a></li>
+      <li><a href="#contact">say hi</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-blob3"></div>
+    <div class="hero-inner">
+      <div class="avatar-wrap">
+        <div class="avatar-inner">🌙</div>
+      </div>
+      <span class="hero-tag">17 · Hyderabadi soul, Mumbai based</span>
+      <h1 class="hero-greeting">
+        <span>hi, i'm</span>
+        Sitara ✦
+      </h1>
+      <p class="hero-tagline">
+        art kid. cat enthusiast. the one who puts <em>salt in her coffee</em> and isn't sorry about it. living for late nights and things that feel like poetry. 🌙
+      </p>
+      <div class="hero-pills">
+        <span class="pill">🎨 artist</span>
+        <span class="pill terra">🐱 cat person</span>
+        <span class="pill">🧂 salt in coffee</span>
+        <span class="pill sage">🌙 night owl</span>
+        <span class="pill">📍 Mumbai</span>
+      </div>
+      <a class="cta-btn" href="#contact">💌 say something nice</a>
+      <span class="hero-scroll-hint">↓ scroll ↓</span>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave">
+    <svg viewBox="0 0 1440 58" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,38 C400,0 1040,70 1440,30 L1440,58 L0,58 Z" fill="#fffaf5"/>
+    </svg>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">✦ who am I</span>
+        <h2 class="section-title">a little about me 🌷</h2>
+        <p class="section-sub">a hyderabadi soul trying to find her aesthetic in the chaos of mumbai.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <p>Hi! I'm <strong>Sitara</strong>, 17, an art lover with permanently paint-stained hands and a sketchbook that goes everywhere with me.</p>
+          <p>Born in Hyderabad, currently figuring out Mumbai. Still a <strong>Hyderabadi at heart</strong> — the biryani is irreplaceable and so is the attitude. 🫀</p>
+          <p>I believe in <strong>late-night conversations</strong>, art that makes your chest tight, cats who pretend they don't love you, and yes — a pinch of salt in my coffee. Try it before you judge. ☕🧂</p>
+        </div>
+        <div class="about-bubbles reveal">
+          <div class="about-bubble">
+            <span class="bicon">🎨</span> artist · sketchbook always in hand
+          </div>
+          <div class="about-bubble sage-b">
+            <span class="bicon">📍</span> hyderabad → mumbai (still adjusting)
+          </div>
+          <div class="about-bubble mauve-b">
+            <span class="bicon">🐱</span> devoted cat person, no exceptions
+          </div>
+          <div class="about-bubble">
+            <span class="bicon">🌙</span> 2am is actually prime time
+          </div>
+          <div class="about-bubble sage-b">
+            <span class="bicon">🧂</span> salt in coffee — it's a whole thing
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave" style="background:#fffaf5;">
+    <svg viewBox="0 0 1440 58" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,18 C500,70 940,0 1440,38 L1440,58 L0,58 Z" fill="#fdf6ee"/>
+    </svg>
+  </div>
+
+  <!-- THINGS I LOVE -->
+  <section id="loves">
+    <div class="container">
+      <div class="reveal loves-header">
+        <span class="section-label">✦ obsessions</span>
+        <h2 class="section-title">things I absolutely love 💕</h2>
+        <p class="section-sub" style="margin:0 auto;">a little mood board of everything that makes me, me.</p>
+      </div>
+      <div class="loves-grid">
+        <div class="love-card reveal">
+          <span class="love-icon">🖌️</span>
+          <div class="love-name">Painting</div>
+          <div class="love-desc">Watercolour, gouache, acrylic — whatever mood hits. Mess is part of the process.</div>
+        </div>
+        <div class="love-card reveal">
+          <span class="love-icon">✏️</span>
+          <div class="love-name">Sketching</div>
+          <div class="love-desc">My sketchbook is basically my diary. Carry it everywhere, no cap.</div>
+        </div>
+        <div class="love-card reveal">
+          <span class="love-icon">🐱</span>
+          <div class="love-name">Cats</div>
+          <div class="love-desc">Chaotic, unbothered, regal. I am them and they are me.</div>
+        </div>
+        <div class="love-card reveal">
+          <span class="love-icon">☕🧂</span>
+          <div class="love-name">Salted Coffee</div>
+          <div class="love-desc">A pinch of salt cuts the bitterness. You're welcome. Not open to debate.</div>
+        </div>
+        <div class="love-card reveal">
+          <span class="love-icon">🌙</span>
+          <div class="love-name">Late Nights</div>
+          <div class="love-desc">2am is honestly when everything makes the most sense. Peak creative hours.</div>
+        </div>
+        <div class="love-card reveal">
+          <span class="love-icon">📖</span>
+          <div class="love-name">Books</div>
+          <div class="love-desc">The kind that make you close them slowly and just… sit there for a bit.</div>
+        </div>
+        <div class="love-card reveal">
+          <span class="love-icon">🎶</span>
+          <div class="love-name">Music</div>
+          <div class="love-desc">Lo-fi while drawing, something dramatic while doing literally anything else.</div>
+        </div>
+        <div class="love-card reveal">
+          <span class="love-icon">🌧️</span>
+          <div class="love-name">Rainy Days</div>
+          <div class="love-desc">Grey skies, window light, and a fresh canvas. Honestly perfect.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave" style="background:#fdf6ee;">
+    <svg viewBox="0 0 1440 58" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,28 C380,70 1060,0 1440,36 L1440,58 L0,58 Z" fill="#faeae2"/>
+    </svg>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="reveal">
+        <span class="section-label">✦ let's talk</span>
+        <h2 class="section-title" style="color:var(--rose-deep);">say something sweet 💬</h2>
+        <p class="section-sub" style="margin:0 auto .5rem;">whether it's about art, cats, that salt-in-coffee thing — i'm always here.</p>
+      </div>
+      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+        <input type="text"  placeholder="your name 🌷" required />
+        <input type="email" placeholder="your email 💌" required />
+        <textarea rows="4"  placeholder="leave me a little note ✨" required></textarea>
+        <button class="cta-btn" type="submit">send it ✦</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="social-row">
+      <a class="social-btn" href="https://www.instagram.com/guestuser34567" title="Instagram"  aria-label="Instagram">📷</a>
+      
+    </div>
+    <p class="footer-note">made with <span>♡</span> and salted coffee · sitara · © 2026</p>
+  </footer>
+
+  <!-- TOAST -->
+  <div id="toast" style="
+    position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(120px);
+    background:var(--rose-deep); color:#fff;
+    padding:.75rem 1.9rem; border-radius:999px;
+    font-family:'Quicksand',sans-serif; font-weight:700; font-size:.93rem;
+    box-shadow:0 8px 28px rgba(184,92,82,.4);
+    transition:transform .42s cubic-bezier(.34,1.56,.64,1);
+    z-index:999; pointer-events:none;
+  ">💌 To be noted: the api is not funtional so yea... ✦</div>
+
+   <script>
+  // scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i % 3) * 0.09 + 's';
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.10 });
+  reveals.forEach(el => io.observe(el));
+
+  // mail on submit
+  document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const yourEmail = 'sitaraaahereee@gmail.com'; 
+    const name    = this.querySelector('input[type=text]').value;
+    const from    = this.querySelector('input[type=email]').value;
+    const message = this.querySelector('textarea').value;
+
+    const subject = `hey sitara! — message from ${name}`;
+    const body    = `Name: ${name}%0D%0AEmail: ${from}%0D%0A%0D%0A${message}`;
+
+    window.location.href = `mailto:${yourEmail}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+    const toast = document.getElementById('toast');
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    setTimeout(() => { toast.style.transform = 'translateX(-50%) translateY(120px)'; }, 3400);
+  });
+  </script>
+</body>
+</html>
